@@ -1,0 +1,12 @@
+{
+  "name": "client-theme",
+  "version": "1.0.0",
+  "description": "Client Theme.",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "load-grunt-config": "~0.7.1",
+    "grunt-contrib-watch": "~0.5.3",
+    // "grunt-wordpress-deploy": "~0.0.5" // keep this line in if you want to use the NPM package
+    "grunt-wordpress-deploy": "git://github.com/jambox/grunt-wordpress-deploy.git#remove-client-utils"
+  }
+}

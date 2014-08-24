@@ -1,0 +1,11 @@
+{
+  "client_host": {
+    "db_user":"",
+    "db_pass":""
+  },
+  "dev":{
+    "db_user":"",
+    "db_pass":""
+  }
+
+}
