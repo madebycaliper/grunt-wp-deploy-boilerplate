@@ -41,5 +41,6 @@ module.exports =
       "!*.coffee"
       "!*.zip"
       "!*.map"
+      # Add excludes for this project..
     ]
     dest: "build/"
