@@ -5,6 +5,7 @@ module.exports = (grunt) ->
   require('load-grunt-config')(grunt,
     config:
       deployconfig : deployconfig
+      pkg: grunt.file.readJSON('package.json')
   )
 
   # Register tasks
