@@ -32,6 +32,9 @@ module.exports =
       "*.coffee"
       "deployconfig.*"
       "src/"
+      # Grunt Build
+      "releases/"
+      "build/"
       # Theme-specific Exclusions
       "client-design-files/" # An example of a folder you wouldn't want to sync
     ]

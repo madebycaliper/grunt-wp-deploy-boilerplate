@@ -11,6 +11,7 @@ module.exports = (grunt) ->
   # Register tasks
   grunt.registerTask "default", ["watch"]
   grunt.registerTask "deploy", ["wordpressdeploy"]
+  grunt.registerTask "build", ["clean:build", "copy:build", "compress:build"]
 
   return
 
