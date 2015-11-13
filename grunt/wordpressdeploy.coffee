@@ -7,7 +7,8 @@ module.exports =
       "-rlpt"
       "--compress"
       "--omit-dir-times"
-      "--delete"
+      # "--delete"
+      # "--dry-run"
     ]
     exclusions: [
       "Gruntfile.*"
@@ -53,7 +54,7 @@ module.exports =
     user: "admin"
     pass: "admin"
     host: "localhost"
-    url: "http://localhost:8888/client-site.com"
+    url: "//localhost:8888/client-site.com"
     path:
       theme: "/Applications/MAMP/htdocs/client-site.com/wp-content/themes/client_name-theme/"
       uploads: "/Applications/MAMP/htdocs/client-site.com/wp-content/uploads/"
@@ -71,7 +72,7 @@ module.exports =
     user: "<%= grunt.config.data.deployconfig.client_host.db_user %>"
     pass: "<%= grunt.config.data.deployconfig.client_host.db_pass %>"
     host: "mysql.client-site.com"
-    url: "http://client-site.com"
+    url: "//client-site.com"
     path:
       theme: "/home/client_name/client-site.com/wp-content/themes/client_name-theme/"
       uploads: "/home/client_name/client-site.com/wp-content/uploads/"
@@ -87,7 +88,7 @@ module.exports =
     user: "<%= grunt.config.data.deployconfig.dev.db_user %>"
     pass: "<%= grunt.config.data.deployconfig.dev.db_pass %>"
     host: "127.0.0.1"
-    url: "http://my-portfolio-site.com/client/client_name"
+    url: "//my-portfolio-site.com/client/client_name"
     path:
       theme: "/home/wordpress/public_html/client/client_name/wp-content/themes/client_name-theme/"
       uploads: "/home/wordpress/public_html/client/client_name/wp-content/uploads/"
