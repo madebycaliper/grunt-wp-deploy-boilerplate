@@ -61,5 +61,5 @@ Enjoy responsibly.
 And submit an issue to this repo if you're having trouble.
 
 
-###Please refer to the [grunt-wordpress-deploy docs](https://github.com/jambox/grunt-wordpress-deploy/tree/remove-client-utils) for deployment syntax/instructions.
+###Please refer to the [grunt-wordpress-deploy docs](https://github.com/jambox/grunt-wordpress-deploy/) for deployment syntax/instructions.
 
