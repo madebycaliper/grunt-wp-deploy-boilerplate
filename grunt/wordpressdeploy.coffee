@@ -73,6 +73,9 @@ module.exports =
     pass: "<%= grunt.config.data.deployconfig.client_host.db_pass %>"
     host: "mysql.client-site.com"
     url: "//client-site.com"
+    sql_remove: [ # Get rid of unwanted STDOUT statements from remote sql servers
+      # "Warning: Using a password on the command line interface can be insecure."
+    ]    
     path:
       theme: "/home/client_name/client-site.com/wp-content/themes/client_name-theme/"
       uploads: "/home/client_name/client-site.com/wp-content/uploads/"
