@@ -26,73 +26,77 @@ module.exports =
       "sftp-config.json"
       "codekit-config.json"
       "config.codekit"
-      "*.less"  # Comment this line if you compile LESS at runtime (but why?)
+      # Commented out for pushing plugins/themes that compile LESS at runtime
+      # "*.less"
       "backwpup-*"
       "grunt"
       "vendor"
       "*.coffee"
       "deployconfig.*"
-      "src/"
+      ".codekit-cache/" # Proprietary file from Codekit     
       # Grunt Build
       "releases/"
       "build/"
+      # For Use with Roots Theme Setup
+      "assets/less/"
+      "assets/js/plugins"
+      ".editorconfig" 
+      ".bowerrc" 
+      "bower.json"       
       # Theme-specific Exclusions
-      "client-design-files/" # An example of a folder you wouldn't want to sync
+      "_Project Images/"
     ]
 
   local:
     title: "Local"
     database: "wordpress"
-    table_prefix: "client_wordpress_"
+    table_prefix: "wp_"
     table_exclusions : [
-      # "wfBadLeechers",
-      # "wfBlocks",
-      # "wfBlocksAdv",
-      # "wfFileMods",
-      # "wfHits"
     ]
     user: "admin"
     pass: "admin"
     host: "localhost"
-    url: "//localhost:8888/client-site.com"
+    url: "//localhost:8888/best-client-ev.er"
     path:
-      theme: "/Applications/MAMP/htdocs/client-site.com/wp-content/themes/client_name-theme/"
-      uploads: "/Applications/MAMP/htdocs/client-site.com/wp-content/uploads/"
+      theme   : "<%= deployconfig.local.wp_content_path %>/themes/<%= theme_name %>/build/"
+      uploads : "<%= deployconfig.local.wp_content_path %>/uploads/"
+      plugins : "<%= deployconfig.local.wp_content_path %>/plugins/"
 
 
   # ==========  Start Environment Definitions  ==========
 
-  client_host:
-    title: "client_host"
-    database: "client_db"
-    table_prefix: "client_name_db_"
+
+  dev:
+    title: "Dev Site"
+    database: "client_dev"
+    table_prefix: "wp_"
     table_exclusions : [
       "_wf" # Will exclude with " NOT LIKE '%_wf%' " SQL statement
     ]        
-    user: "<%= grunt.config.data.deployconfig.client_host.db_user %>"
-    pass: "<%= grunt.config.data.deployconfig.client_host.db_pass %>"
-    host: "mysql.client-site.com"
-    url: "//client-site.com"
-    sql_remove: [ # Get rid of unwanted STDOUT statements from remote sql servers
-      # "Warning: Using a password on the command line interface can be insecure."
+    user: "<%= deployconfig.dev.db_user %>"
+    pass: "<%= deployconfig.dev.db_pass %>"
+    host: "127.0.0.1"
+    url: "//dev.best-client-ev.er"
+    path:
+      theme   : "<%= deployconfig.dev.wp_content_path %>/themes/<%= theme_name %>/"
+      uploads : "<%= deployconfig.dev.wp_content_path %>/uploads/"
+      plugins : "<%= deployconfig.dev.wp_content_path %>/plugins/"
+    ssh_host: "dev_user@ssh.best-client-ev.er"
+
+  prod:
+    title: "Production Site"
+    database: "client_wp"
+    table_prefix: "wp_"
+    table_exclusions : []        
+    user: "<%= deployconfig.prod.db_user %>"
+    pass: "<%= deployconfig.prod.db_pass %>"
+    host: "127.0.0.1"
+    url: "//best-client-ev.er"
+    sql_remove: [
+      "Warning: Using a password on the command line interface can be insecure."
     ]    
     path:
-      theme: "/home/client_name/client-site.com/wp-content/themes/client_name-theme/"
-      uploads: "/home/client_name/client-site.com/wp-content/uploads/"
-    ssh_host: "client_name@my.client_host.com"
-
-  dev:
-    title: "Dev Server"
-    database: "wordpress"
-    table_prefix: "client_name_wp_"
-    table_exclusions : [
-      "_wf" # Will exclude with " NOT LIKE '%_wf%' " statement
-    ]        
-    user: "<%= grunt.config.data.deployconfig.dev.db_user %>"
-    pass: "<%= grunt.config.data.deployconfig.dev.db_pass %>"
-    host: "127.0.0.1"
-    url: "//my-portfolio-site.com/client/client_name"
-    path:
-      theme: "/home/wordpress/public_html/client/client_name/wp-content/themes/client_name-theme/"
-      uploads: "/home/wordpress/public_html/client/client_name/wp-content/uploads/"
-    ssh_host: "wordpress@ssh.my-portfolio-site.com"
+      theme   : "<%= deployconfig.prod.wp_content_path %>/themes/<%= theme_name %>/"
+      uploads : "<%= deployconfig.prod.wp_content_path %>/uploads/"
+      plugins : "<%= deployconfig.prod.wp_content_path %>/plugins/"
+    ssh_host: "main_user@ssh.best-client-ev.er"
