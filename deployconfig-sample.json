@@ -1,11 +1,15 @@
 {
-  "client_host": {
-    "db_user":"",
-    "db_pass":""
+  "local": {
+    "wp_content_path":"/Applications/MAMP/htdocs/best-client-ev.er/wp-content"
   },
-  "dev":{
-    "db_user":"",
-    "db_pass":""
+  "dev": {
+    "db_user":"client_dev",
+    "db_pass":"pass_goes_here",
+    "wp_content_path":"/home/client/public_html/dev/wp-content"
+  },
+  "prod": {
+    "db_user":"client_production",
+    "db_pass":"pass_goes_here",
+    "wp_content_path":"/home/client/public_html/wp-content"
   }
-
 }
