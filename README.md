@@ -29,25 +29,25 @@ If you're familiar with traditional [`Gruntfile.js`](http://gruntjs.com/sample-g
 Let's do this
 ===========================
 
-* Use your command line tool of choice (I prefer [iTerm2](http://iterm2.com/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) installed) and navigate to your theme folder:
+1. Use your command line tool of choice (I prefer [iTerm2](http://iterm2.com/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) installed) and navigate to your theme folder:
 
   ```
   cd /Applications/MAMP/htdocs/best-client-ev.er/wp-content/themes/client_name-theme/
   ```
 
-* Clone this repo into your theme or plugin folder:
+2. Clone this repo into your theme or plugin folder:
 
   ```
   git clone https://github.com/jambox/grunt-wp-deploy-boilerplate.git
   ```
 
-* If you trust me, run the installer script (or you can manually copy the files to the parent folder, including `.gitignore`):
+3. If you trust me, run the installer script (or you can manually copy the files to the parent folder, including `.gitignore`):
 
   ```
   sh ./grunt-wp-deploy-boilerplate/install.sh
   ```
 
-* Install the node packages using `npm` :
+4. Install the node packages using `npm` :
 
   ```
   npm install
