@@ -4,18 +4,18 @@ Grunt WP Deployment Boilerplate
 These are the base files necessary to start using [grunt-wordpress-deploy](https://github.com/jambox/grunt-wp-deploy-boilerplate) for your WordPress theme or plugin development workflow.
 
 
-Requirements
+Global Requirements
 ===========================
 
-You must have [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/) installed. Get em.
+You must have [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/) installed. [Get em](https://docs.npmjs.com/getting-started/installing-node).
 
 This project also uses [Grunt](http://gruntjs.com/getting-started) – which will be installed in the target folder using when `npm install` is run – but you'll need to install the Grunt command line interface (grunt-cli) 'globally' so you can use the `grunt` alias on the command line. (If this doesn't make any sense, it's OK. Just follow the Grunt Getting Started instructions linked above and they'll walk you through it).
 
 
-Dependencies
+Project Dependencies
 ===========================
 
-If you're familiar with traditional `Gruntfile.js` structures you might notice an odd-looking Gruntfile here – there are two reasons:
+If you're familiar with traditional [`Gruntfile.js`](http://gruntjs.com/sample-gruntfile) structures you might notice an odd-looking Gruntfile here – there are two reasons:
 
 1. This project utilizes the [load-grunt-config](http://firstandthird.github.io/load-grunt-config/) package to allow modularization of Grunt tasks. Each file in the `./grunt` directory represents an _auto-loaded_ Grunt task (named like `{TASK_NAME}.coffee`). The meat-and-potatoes in `Gruntile.coffee` is the line that initializes this package:
 
@@ -29,30 +29,43 @@ If you're familiar with traditional `Gruntfile.js` structures you might notice a
 Let's do this
 ===========================
 
-Clone this repo somewhere (anywhere, really) on your machine:
+* Use your command line tool of choice (I prefer [iTerm2](http://iterm2.com/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) installed) and navigate to your theme folder:
 
-```
-git clone https://github.com/jambox/grunt-wp-deploy-boilerplate.git
-```
+  ```
+  cd /Applications/MAMP/htdocs/best-client-ev.er/wp-content/themes/client_name-theme/
+  ```
 
-Copy the files into your WP theme folder.
+* Clone this repo into your theme or plugin folder:
 
-Use your command line tool of choice (I prefer [iTerm2](http://iterm2.com/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) installed) and navigate to your theme folder.
-```
-cd /Applications/MAMP/htdocs/best-client-ev.er/wp-content/themes/client_name-theme/
-```
-Install the node packages using `npm`
-```
-npm install
-```
+  ```
+  git clone https://github.com/jambox/grunt-wp-deploy-boilerplate.git
+  ```
 
-## deployconfig.js
+* If you trust me, run the installer script (or you can manually copy the files to the parent folder, including `.gitignore`):
+
+  ```
+  sh ./grunt-wp-deploy-boilerplate/install.sh
+  ```
+
+* Install the node packages using `npm` :
+
+  ```
+  npm install
+  ```
+
+## Configuration
 
 Just like the WordPress installation flow, there's a sample config file included in the repo with the suffix `-sample`. Remove the `-sample` from the name and add your sensitive information to get started.
 
+_If you're just learning your way around the command line, here's a simple way to do that:_
+
+```
+mv deployconfig-sample.json deployconfig.json
+```
+
 By default, `deployconfig.json` is included in the `.gitignore` file, so you should be covered. 
 
-_Troubleshooting: If this file does show up in your git repo, it means you have the filename wrong, which will break the grunt task._
+_Troubleshooting: If this config file shows up in your git repo, it means you have the filename wrong, which will break the grunt task._
 
 
 ```json
@@ -89,7 +102,7 @@ _**Note** : The local object must be named "local". Don't change it._
 
 ## Setting up your Gruntfile
 
-The only thing you really need to change in the `Gruntfile.coffee` file included here is the `theme_name` property. Change this to match the folder in which you're developing your theme. *It must be the same on the local and all the remote servers*
+The only thing you really need to change in the `Gruntfile.coffee` file included here is the `theme_name` property. Change this to match the folder in which you're developing your theme. **_It must be the same on the local and all the remote servers_**
 
 ```coffee
   require('load-grunt-config')(grunt,
