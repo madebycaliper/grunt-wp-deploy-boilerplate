@@ -29,7 +29,7 @@ module.exports =
       "!deployconfig.*"
       "!backups/**"
       # Grunt build output
-      "!backups/**"
+      "!build/**"
       "!releases/**"
       # Codekit
       "!config.codekit"
