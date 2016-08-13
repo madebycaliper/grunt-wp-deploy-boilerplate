@@ -1,7 +1,7 @@
 Grunt WP Deployment Boilerplate
 ===========================
 
-These are the base files necessary to start using [grunt-wordpress-deploy](https://github.com/jambox/grunt-wp-deploy-boilerplate) for your WordPress theme or plugin development workflow.
+These are the base files necessary to start using [grunt-wordpress-deploy](https://github.com/CaliperCreative/grunt-wp-deploy-boilerplate) for your WordPress theme or plugin development workflow.
 
 
 Global Requirements
@@ -38,7 +38,7 @@ Let's do this
 2. Clone this repo into your theme or plugin folder:
 
   ```
-  git clone https://github.com/jambox/grunt-wp-deploy-boilerplate.git
+  git clone https://github.com/CaliperCreative/grunt-wp-deploy-boilerplate.git
   ```
 
 3. If you trust me, run the installer script (or you can manually copy the files to the parent folder, including `.gitignore`):
@@ -170,5 +170,5 @@ Enjoy responsibly.
 And submit an issue to this repo if you're having trouble.
 
 
-###Please refer to the [grunt-wordpress-deploy docs](https://github.com/jambox/grunt-wordpress-deploy/) for deployment syntax/instructions.
+###Please refer to the [grunt-wordpress-deploy docs](https://github.com/CaliperCreative/grunt-wordpress-deploy/) for deployment syntax/instructions.
 
