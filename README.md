@@ -1,7 +1,7 @@
 Grunt WP Deployment Boilerplate
 ===========================
 
-These are the base files necessary to start using [grunt-wordpress-deploy](https://github.com/CaliperCreative/grunt-wp-deploy-boilerplate) for your WordPress theme or plugin development workflow.
+These are the base files necessary to start using [grunt-wordpress-deploy](https://github.com/CaliperCreative/grunt-wordpress-deploy) for your WordPress theme or plugin development workflow.
 
 
 Global Requirements
