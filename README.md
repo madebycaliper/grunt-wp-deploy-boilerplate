@@ -1,7 +1,7 @@
 Grunt WP Deployment Boilerplate
 ===========================
 
-These are the base files necessary to start using [grunt-wordpress-deploy](https://github.com/CaliperCreative/grunt-wordpress-deploy) for your WordPress theme or plugin development workflow.
+These are the base files necessary to start using [grunt-wordpress-deploy](https://github.com/madebycaliper/grunt-wordpress-deploy) for your WordPress theme or plugin development workflow.
 
 
 Global Requirements
@@ -38,7 +38,7 @@ Let's do this
 2. Clone this repo into your theme or plugin folder:
 
   ```
-  git clone https://github.com/CaliperCreative/grunt-wp-deploy-boilerplate.git
+  git clone https://github.com/madebycaliper/grunt-wp-deploy-boilerplate.git
   ```
 
 3. If you trust me, run the installer script (or you can manually copy the files to the parent folder, including `.gitignore`):
@@ -57,13 +57,13 @@ Let's do this
 
 Just like the WordPress installation flow, there's a sample config file included in the repo with the suffix `-sample`. Remove the `-sample` from the name and add your sensitive information to get started.
 
-_If you're just learning your way around the command line, here's a simple way to do that:_
+_If you're just learning your way around the command line, here's a simple way to do that using the "move" command:_
 
 ```
 mv deployconfig-sample.json deployconfig.json
 ```
 
-By default, `deployconfig.json` is included in the `.gitignore` file, so you should be covered. 
+By default, `deployconfig.json` is excluded in the `.gitignore` file, so you should be covered. 
 
 _Troubleshooting: If this config file shows up in your git repo, it means you have the filename wrong, which will break the grunt task._
 
@@ -170,5 +170,5 @@ Enjoy responsibly.
 And submit an issue to this repo if you're having trouble.
 
 
-###Please refer to the [grunt-wordpress-deploy docs](https://github.com/CaliperCreative/grunt-wordpress-deploy/) for deployment syntax/instructions.
+###Please refer to the [grunt-wordpress-deploy docs](https://github.com/madebycaliper/grunt-wordpress-deploy/) for deployment syntax/instructions.
 
