@@ -53,8 +53,8 @@ module.exports =
     table_prefix: "wp_"
     table_exclusions : [
     ]
-    user: "admin"
-    pass: "admin"
+    user: "<%= deployconfig.local.db_user %>"
+    pass: "<%= deployconfig.local.db_pass %>"
     host: "localhost"
     url: "//localhost:8888/best-client-ev.er"
     path:
