@@ -34,31 +34,43 @@ If you're familiar with traditional [`Gruntfile.js`](http://gruntjs.com/sample-g
 
 ## Let's do this
 
-#### 1. Use your command line tool of choice (I prefer [iTerm2](http://iterm2.com/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) installed) and navigate to your theme folder:
+##### 1. Use your command line tool of choice (I prefer [iTerm2](http://iterm2.com/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) installed) and navigate to your theme folder:
 
   ```shell
   cd /Applications/MAMP/htdocs/best-client-ev.er/wp-content/themes/client_name-theme/
   ```
 
-#### 2. Clone this repo into your theme or plugin folder:
+##### 2. Clone this repo into your theme or plugin folder:
 
   ```shell
   git clone https://github.com/madebycaliper/grunt-wp-deploy-boilerplate.git
   ```
 
-#### 3. If you trust me, run the installer script (or you can manually copy the files to the parent folder, including `.gitignore`):
+##### 3. If you trust me, run the installer script (or you can manually copy the files to the parent folder, including `.gitignore`):
 
   ```shell
   sh ./grunt-wp-deploy-boilerplate/install.sh
   ```
 
-#### 4. Install the node packages using `npm` ([the Node Package Manager](https://www.npmjs.com/)) :
+##### 4. Install the node packages using `npm` ([Node Package Manager](https://www.npmjs.com/)) :
 
   ```shell
   npm install
   ```
 
 ### Configuration
+
+This is a simple two step process:
+
+1. Configure "environments" that represent the different WordPress installs you're dealing with (`wordpressdeploy.coffee`).
+
+2. Provide connection details (filepath, database user and password) for each of those environments, stored in a file that you're not tracking in your git repository (`deployconfig.json`).
+
+### Setting up your Environments
+
+Please follow the instructions in the [grunt-wordpress-deploy docs](https://github.com/madebycaliper/grunt-wordpress-deploy#getting-started) to configure your environments.
+
+### Providing Connection Details
 
 Just like the WordPress installation flow, there's a sample config file included in the repo with the suffix `-sample`. Remove the `-sample` from the name and add your sensitive information to get started.
 
@@ -124,8 +136,8 @@ The only thing you really need to change in the `Gruntfile.coffee` file included
 ```
 
 
-Available Tasks
-===========================
+## Available Tasks
+
 
 #### `grunt build`
 
