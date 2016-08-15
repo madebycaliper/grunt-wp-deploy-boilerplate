@@ -1,19 +1,25 @@
 Grunt WP Deployment Boilerplate
 ===========================
 
-These are the base files necessary to start using [grunt-wordpress-deploy](https://github.com/madebycaliper/grunt-wordpress-deploy) for your WordPress theme or plugin development workflow.
+## Overview
+
+These are the base files and install script necessary to start using [grunt-wordpress-deploy](https://github.com/madebycaliper/grunt-wordpress-deploy) for your WordPress theme development workflow.
+
+Please submit an issue if you run into installation problems.
+
+:loudspeaker: &nbsp; _**Note:** The setup examples below assumes you're developing just a theme. There are some slight modifications you have to make if you want to use this for a theme + plugin deploy flow at the same time._
+
+:bulb: &nbsp; _@TODO: Add examples and instructions on developing a plugin and theme simultaneously._
 
 
-Global Requirements
-===========================
+## Global Requirements
 
 You must have [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.org/) installed. [Get em](https://docs.npmjs.com/getting-started/installing-node).
 
-This project also uses [Grunt](http://gruntjs.com/getting-started) – which will be installed in the target folder using when `npm install` is run – but you'll need to install the Grunt command line interface (grunt-cli) 'globally' so you can use the `grunt` alias on the command line. (If this doesn't make any sense, it's OK. Just follow the Grunt Getting Started instructions linked above and they'll walk you through it).
+This project also uses [Grunt](http://gruntjs.com/getting-started) – which will be installed in the target folder using when `npm install` is run – but you'll need to install the Grunt command line interface (grunt-cli) 'globally' so you can use the `grunt` command on the command line. If none of that made sense, it's OK. Just follow the [Grunt Getting Started instructions](http://gruntjs.com/getting-started) and they'll walk you through it.
 
 
-Project Dependencies
-===========================
+## Project Dependencies
 
 If you're familiar with traditional [`Gruntfile.js`](http://gruntjs.com/sample-gruntfile) structures you might notice an odd-looking Gruntfile here – there are two reasons:
 
@@ -26,38 +32,37 @@ If you're familiar with traditional [`Gruntfile.js`](http://gruntjs.com/sample-g
 2. You're looking at [Coffeescript](http://coffeescript.org), not Javascript. I generally don't write in coffee when developing WP themes, but I always use it for creating Grunt and task files, since it makes for a much leaner and more readable file.
 
 
-Let's do this
-===========================
+## Let's do this
 
-1. Use your command line tool of choice (I prefer [iTerm2](http://iterm2.com/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) installed) and navigate to your theme folder:
+#### 1. Use your command line tool of choice (I prefer [iTerm2](http://iterm2.com/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) installed) and navigate to your theme folder:
 
-  ```
+  ```shell
   cd /Applications/MAMP/htdocs/best-client-ev.er/wp-content/themes/client_name-theme/
   ```
 
-2. Clone this repo into your theme or plugin folder:
+#### 2. Clone this repo into your theme or plugin folder:
 
-  ```
+  ```shell
   git clone https://github.com/madebycaliper/grunt-wp-deploy-boilerplate.git
   ```
 
-3. If you trust me, run the installer script (or you can manually copy the files to the parent folder, including `.gitignore`):
+#### 3. If you trust me, run the installer script (or you can manually copy the files to the parent folder, including `.gitignore`):
 
-  ```
+  ```shell
   sh ./grunt-wp-deploy-boilerplate/install.sh
   ```
 
-4. Install the node packages using `npm` :
+#### 4. Install the node packages using `npm` ([the Node Package Manager](https://www.npmjs.com/)) :
 
-  ```
+  ```shell
   npm install
   ```
 
-## Configuration
+### Configuration
 
 Just like the WordPress installation flow, there's a sample config file included in the repo with the suffix `-sample`. Remove the `-sample` from the name and add your sensitive information to get started.
 
-_If you're just learning your way around the command line, here's a simple way to do that using the "move" command:_
+:dart: &nbsp; **Try it out:** _If you're just learning your way around the command line, here's a simple way to do that using the "move" command:_
 
 ```
 mv deployconfig-sample.json deployconfig.json
@@ -65,12 +70,12 @@ mv deployconfig-sample.json deployconfig.json
 
 By default, `deployconfig.json` is excluded in the `.gitignore` file, so you should be covered. 
 
-_Troubleshooting: If this config file shows up in your git repo, it means you have the filename wrong, which will break the grunt task._
-
 
 ```json
 {
   "local": {
+    "db_user":"admin",
+    "db_pass":"admin",  
     "wp_content_path":"/Applications/MAMP/htdocs/best-client-ev.er/wp-content"
   },
   "dev": {
@@ -87,11 +92,14 @@ _Troubleshooting: If this config file shows up in your git repo, it means you ha
 
 ```
 
-#### Properties
+:interrobang: &nbsp; _**Troubleshooting:** If you're tracking this project with git (you should be) and thish config file shows up in your repo, it means you have the filename wrong. This will not only expose your secret info to anyone looking at your repo, but it will cause the tasks to fail when you try to run them._
+
+
+### Properties
 
 Each environment definition requires the `wp_content_path` key, and each remote definition requires both the `db_user` and `db_pass` keys.
 
-_**Note** : The local object must be named "local". Don't change it._
+:loudspeaker: &nbsp; _**Note** : The local object must be named "local". Don't change it._
 
 * `wp_content_path` : Establish where your `wp-content` folder lives locally and remotely. This key will be accessed every time you push or pull files using the `grunt-wordpress-deploy` package.
 
@@ -100,9 +108,11 @@ _**Note** : The local object must be named "local". Don't change it._
 * `db_pass` : The password for the above SQL database user. This password will also probably be defined in your `wp-config.php` file, unless you have a non-traditional `wp-config` setup.
 
 
-## Setting up your Gruntfile
+### Setting up your Gruntfile
 
-The only thing you really need to change in the `Gruntfile.coffee` file included here is the `theme_name` property. Change this to match the folder in which you're developing your theme. **_It must be the same on the local and all the remote servers_**
+The only thing you really need to change in the `Gruntfile.coffee` file included here is the `theme_name` property. Change this to match the folder in which you're developing your theme.
+
+:loudspeaker: &nbsp; _**Note :** It must be the same on the local and all the remote servers_
 
 ```coffee
   require('load-grunt-config')(grunt,
@@ -138,7 +148,7 @@ This will run your `build` task and then push the theme to the specified path on
 
 #### `grunt sync_up --target={env}`
 
-_Use Caution when using this task. It does a lot and is NOT reversible._
+:pizza: &nbsp; _Use Caution when using this task. It does a lot and is NOT reversible._
 
 This is a helper that's meant to create parity between local and remote servers – making sure all required plugins and uploaded assets are available when the site runs.
 
@@ -152,12 +162,11 @@ This is a helper that's meant to create parity between local and remote servers 
 
 4. Overwrite the remote DB with your local DB.
 
-_@TODO: write `sync_down` helper to work the opposite direction._
+:bulb: &nbsp; _@TODO: write `sync_down` helper to work the opposite direction._
 
 
 
-Get on with your damn life.
-===========================
+## Get on with your damn life.
 
 That's it! You should be setup to push/pull between your local install and different environs like so:
 
@@ -170,5 +179,5 @@ Enjoy responsibly.
 And submit an issue to this repo if you're having trouble.
 
 
-###Please refer to the [grunt-wordpress-deploy docs](https://github.com/madebycaliper/grunt-wordpress-deploy/) for deployment syntax/instructions.
+#### Please refer to the [grunt-wordpress-deploy docs](https://github.com/madebycaliper/grunt-wordpress-deploy/) for deployment syntax/instructions.
 

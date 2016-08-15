@@ -1,5 +1,7 @@
 {
   "local": {
+    "db_user":"admin",
+    "db_pass":"admin",
     "wp_content_path":"/Applications/MAMP/htdocs/best-client-ev.er/wp-content"
   },
   "dev": {
